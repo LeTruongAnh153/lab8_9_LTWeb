@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Lab04.Models.Admin>
+
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml"; // Hoặc _LayoutAdmin.cshtml nếu có
+}
+
+<h3 class="text-center text-primary">DANH SÁCH USER (ADMIN)</h3>
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Mã Admin</th>
+                <th>Tài Khoản</th>
+                <th>Mật Khẩu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.MaAdmin</td>
+                    <td>@user.TaiKhoan</td>
+                    <td>@user.MatKhau</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

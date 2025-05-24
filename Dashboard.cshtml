@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Lab04.Models.Sach>
+
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 class="text-center text-danger">SÁCH MỚI</h3>
+
+<div class="container">
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 d-flex">
+                <div class="card w-100 shadow-sm">
+                    <img src="@Url.Content(item.Hinh)" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.TenSach</h5>
+                        <p class="card-text">Giá: <strong>@String.Format("{0:N0}", item.DonGia) VNĐ</strong></p>
+                        <a href="@Url.Action("Details", "BookStore", new { id = item.MaSach })" class="btn btn-primary btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
