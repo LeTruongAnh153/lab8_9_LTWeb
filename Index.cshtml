@@ -1,121 +1,25 @@
-﻿@{
-    Layout = null;
+﻿@model IEnumerable<Lab04.Models.Sach>
+
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Admin Dashboard</title>
-    <style>
-        /* Reset cơ bản */
-        * {
-            margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            display: flex;
-            min-height: 100vh;
-            background-color: #f4f7fc;
-            color: #333;
-        }
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background-color: #2f3e46;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        .sidebar h2 {
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-align: center;
-            color: #cad2c5;
-        }
-        .sidebar a {
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            color: #a7c4bc;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-weight: 600;
-        }
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #84a98c;
-            color: white;
-        }
-        /* Main content */
-        .main-content {
-            flex: 1;
-            padding: 40px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .main-content h1 {
-            font-size: 2.8rem;
-            color: #354f52;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .main-content p {
-            font-size: 1.3rem;
-            color: #52796f;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        /* Responsive */
-        (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                flex-direction: row;
-                overflow-x: auto;
-                padding: 10px;
-            }
-            .sidebar a {
-                flex: 1 0 auto;
-                margin: 0 10px 0 0;
-                padding: 10px 5px;
-                text-align: center;
-            }
-            .main-content {
-                padding: 20px;
-            }
-            .main-content h1 {
-                font-size: 2rem;
-            }
-            .main-content p {
-                font-size: 1rem;
-                max-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav class="sidebar">
-        <h2>ADMIN PANEL</h2>
-        <a href="@Url.Action("Dashboard", "Admin")">Dashboard</a>
-        <a href="@Url.Action("User", "Admin")">Users</a>
-        <a href="@Url.Action("Product", "Admin")">Products</a>
-        <a href="@Url.Action("Order", "Admin")">Orders</a>
-        <a href="@Url.Action("Index", "Setting")">Settings</a>
-        <a href="@Url.Action("Index", "Logout")">Logout</a>
-    </nav>
+<h3 class="text-center text-danger">SÁCH MỚI</h3>
 
-    <div class="main-content">
-        <h1>Chào mừng bạn đến với trang quản trị Admin!</h1>
-        <p>Ở đây bạn có thể quản lý tất cả các dữ liệu quan trọng của website: quản lý người dùng, sản phẩm, đơn hàng và cài đặt hệ thống một cách dễ dàng và hiệu quả.</p>
-        <p>Hãy sử dụng menu bên trái để bắt đầu các thao tác quản trị. Chúc bạn một ngày làm việc hiệu quả và thành công!</p>
+<div class="container">
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 d-flex">
+                <div class="card w-100 shadow-sm">
+                    <img src="@Url.Content(item.Hinh)" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.TenSach</h5>
+                        <p class="card-text">Giá: <strong>@String.Format("{0:N0}", item.DonGia) VNĐ</strong></p>
+                        <a href="@Url.Action("Details", "BookStore", new { id = item.MaSach })" class="btn btn-primary btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-</body>
-</html>
+</div>

@@ -1,0 +1,14 @@
+﻿@model Lab04.Models.Sach
+
+@{
+    ViewBag.Title = "Chi tiết sách";
+}
+
+<h2>Chi tiết sách</h2>
+
+<p><strong>Tên sách:</strong> @Model.TenSach</p>
+<p><strong>Chi Tiết:</strong> @Model.MoTa</p>
+<p><strong>Năm Xuất Bản:</strong> @Model.NamXB</p>
+<p><strong>Đơn giá:</strong> @Model.DonGia</p>
+
+<p>@Html.ActionLink("Quay lại", "Index")</p>
