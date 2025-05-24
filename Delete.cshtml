@@ -1,0 +1,21 @@
+﻿@model Lab04.Models.ChiTietDonDatHang
+
+@{
+    ViewBag.Title = "Xóa Chi tiết Đơn đặt hàng";
+}
+
+<h2>Xóa Chi tiết Đơn đặt hàng</h2>
+
+<p>Bạn có chắc muốn xóa chi tiết này?</p>
+
+<p><strong>SoDH:</strong> @Model.SoDH</p>
+<p><strong>MaSach:</strong> @Model.MaSach</p>
+<p><strong>SoLuong:</strong> @Model.SoLuong</p>
+<p><strong>DonGia:</strong> @Model.DonGia</p>
+
+@using (Html.BeginForm("DeleteConfirmed", "ChiTietDonDatHang", new { soDH = Model.SoDH, maSach = Model.MaSach }, FormMethod.Post))
+{
+<input type="submit" value="Xóa" />
+ |
+@Html.ActionLink("Hủy", "Index")
+}

@@ -1,0 +1,32 @@
+﻿@model Lab04.Models.ChiTietDonDatHang
+
+@{
+    ViewBag.Title = "Thêm Chi tiết Đơn đặt hàng";
+}
+
+<h2>Thêm Chi tiết Đơn đặt hàng</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.SoDH)
+    @Html.DropDownList("SoDH", null, "Chọn đơn hàng")
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.MaSach)
+    @Html.DropDownList("MaSach", null, "Chọn sách")
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.SoLuong)
+    @Html.TextBoxFor(m => m.SoLuong)
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.DonGia)
+    @Html.TextBoxFor(m => m.DonGia)
+    <br />
+    <br />
+
+    <input type="submit" value="Lưu" />
+}

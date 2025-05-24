@@ -1,0 +1,28 @@
+﻿@model Lab04.Models.ChiTietDonDatHang
+
+@{
+    ViewBag.Title = "Sửa Chi tiết Đơn đặt hàng";
+}
+
+<h2>Sửa Chi tiết Đơn đặt hàng</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.SoDH)
+    @Html.HiddenFor(m => m.MaSach)
+
+    <p><strong>Số ĐH:</strong> @Model.SoDH</p>
+    <p><strong>Mã sách:</strong> @Model.MaSach</p>
+
+    @Html.LabelFor(m => m.SoLuong)
+    @Html.TextBoxFor(m => m.SoLuong)
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.DonGia)
+    @Html.TextBoxFor(m => m.DonGia)
+    <br />
+    <br />
+
+    <input type="submit" value="Cập nhật" />
+}

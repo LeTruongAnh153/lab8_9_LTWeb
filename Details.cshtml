@@ -1,14 +1,14 @@
-﻿@model Lab04.Models.Sach
+﻿@model Lab04.Models.ChiTietDonDatHang
 
 @{
-    ViewBag.Title = "Chi tiết sách";
+    ViewBag.Title = "Chi tiết Chi tiết Đơn đặt hàng";
 }
 
-<h2>Chi tiết sách</h2>
+<h2>Chi tiết Đơn đặt hàng</h2>
 
-<p><strong>Tên sách:</strong> @Model.TenSach</p>
-<p><strong>Chi Tiết:</strong> @Model.MoTa</p>
-<p><strong>Năm Xuất Bản:</strong> @Model.NamXB</p>
+<p><strong>Số ĐH:</strong> @Model.SoDH</p>
+<p><strong>Mã Sách:</strong> @Model.MaSach</p>
+<p><strong>Số lượng:</strong> @Model.SoLuong</p>
 <p><strong>Đơn giá:</strong> @Model.DonGia</p>
 
 <p>@Html.ActionLink("Quay lại", "Index")</p>
